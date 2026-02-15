@@ -42,8 +42,11 @@ sudo nft-geo-filter --country US --provider ipdeny.com
 
 
 sudo /bin/nft-geo-filter -f netdev -i eth1 --log-drop --log-drop-prefix "GEO-BLOCK-INTGRESS: " ru ch
+
 sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 --log-drop --log-drop-prefix "GEO-BLOCK-INT: " ru ch
+
 sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 -n geo-in --log-drop --log-drop-prefix "Counter : " ru ch
+
 sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 -n geo-out --log-drop --log-drop-prefix "Counter   : " ru ch
 
 ---

@@ -8,35 +8,18 @@ Blocks or allows network traffic based on country IP ranges.
 #Source Code -> https://github.com/rpthms/nft-geo-filter.git
 ---
 
-🇬🇧 English
-
-nft-geo-filter is a Python-based GeoIP filtering tool for nftables on Linux.
-It downloads country-based IP ranges and applies them as nftables rules.
-
-Features
-
-Country-based GeoIP filtering
-
-IPv4 and IPv6 support
-
-Allow or drop policy
-
-Automatic IP list download
-
-Designed for servers and firewalls
-
-
 
 Installation
 sudo cp nft-geo-filter /bin/nft-geo-filter
 sudo chmod +x /bin/nft-geo-filter
 
-Usage
 
-sage: nft-geo-filter [-h] [-v] [-l NFT_LOCATION] [-a] [--allow-established] [-c] [--provider {ipdeny.com,ipverse.net}] [-f {ip,ip6,inet,netdev}] [-n TABLE_NAME] [-i INTERFACE] [--no-ipv4] [--no-ipv6] [-e IPS] [--log-accept]
-                      [--log-accept-prefix LOG_ACCEPT_PREFIX] [--log-accept-level LOG_ACCEPT_LEVEL] [--log-drop] [--log-drop-prefix LOG_DROP_PREFIX] [--log-drop-level LOG_DROP_LEVEL]
-                      country [country ...]
+sudo /bin/nft-geo-filter -f netdev -i eth1 --log-drop --log-drop-prefix "GEO-BLOCK-INTGRESS: " ru ch 
 
+sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 --log-drop --log-drop-prefix "GEO-BLOCK-INT: " ru ch
+
+sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 -n geo-in --log-drop --log-drop-prefix "Counter : " ru ch
+sudo /bin/nft-geo-filter -f inet -n geo-filter -i eth1,wlan0 -n geo-out --log-drop --log-drop-prefix "Counter   : " ru ch
 
 
 # nft-geo-filter
@@ -47,7 +30,7 @@ This script requires nftables >= 0.9.0
 
 # Installation
 Download the script from here:
-https://raw.githubusercontent.com/rpthms/nft-geo-filter/master/nft-geo-filter
+https://github.com/Cyrous-agh/nft-geo-filter.git
 
 # TL;DR
 Run `nft-geo-filter --table-family netdev --interface <interface_to_internet>

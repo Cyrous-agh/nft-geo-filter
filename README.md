@@ -5,6 +5,7 @@ NFT Geo Filter rule for blocking IPs by location or configuration on Linux
 A Python-based GeoIP filter for **nftables** on Linux systems.  
 Blocks or allows network traffic based on country IP ranges.
 
+#Source Code -> https://github.com/rpthms/nft-geo-filter.git
 ---
 
 🇬🇧 English
